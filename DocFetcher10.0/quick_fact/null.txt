@@ -1,0 +1,41 @@
+public static String getClipboardString() {
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+
+        Transferable trans = clipboard.getContents(null);
+
+        if (trans != null) {
+            if (trans.isDataFlavorSupported(DataFlavor.stringFlavor)) {
+                try {
+                    String text = (String) trans.getTransferData(DataFlavor.stringFlavor);
+                    return text;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+    public void addToQuickFact(String query_name) throws IOException {
+        String output_path = "./quick_fact/"+ query_name + ".txt";
+        String fact;
+        fact = getClipboardString() + "\n";
+        FileWriter fw = new FileWriter(output_path, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(fact);
+        bw.close();
+        fw.close();
+    }
+    public void addToQuickFact(String query_name) throws IOException {
+        String output_path = "./quick_fact/"+ query_name + ".txt";
+        String fact;
+        fact = getClipboardString() + "\n";
+        FileWriter fw = new FileWriter(output_path, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(fact);
+        bw.close();
+        fw.close();
+    }
+query
+这是word2007文档
+这是word2007文档
+是word2007文档
